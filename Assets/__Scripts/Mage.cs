@@ -478,7 +478,11 @@ public class Mage : PT_MonoBehaviour {
 		StopWalking();
 		ClearInput();
 		health -= enemy.touchDamage; // Take 1 point of damage (for now)
-		heartBar.ModifyHealth(-10);
+		if(enemy.touchDamage == 0.5){
+			heartBar.ModifyHealth(-5);
+		} else if(enemy.touchDamage == 1){
+			heartBar.ModifyHealth(-10);
+		}
 		if (health <= 0) {
 			Die();
 			return;
